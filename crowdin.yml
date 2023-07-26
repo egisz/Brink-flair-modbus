@@ -1,0 +1,3 @@
+files:
+  - source: /esphome/labels/en/*
+    translation: /en/%two_letters_code%/%original_file_name%
