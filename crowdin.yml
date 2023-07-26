@@ -1,0 +1,3 @@
+files:
+  - source: /esphome/.brink*.yaml
+    translation: esphome/labels/%two_letters_code%/%original_file_name%
