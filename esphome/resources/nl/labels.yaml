@@ -28,18 +28,18 @@ substitutions:
   brink_imbalance_intake: Brink imbalance intake
   brink_bypass_from_dwelling: Bypass temp uit woning
   brink_bypass_from_outside: Bypass temp van buiten
-  brink_bypass_hysteresis: Bypass hysteresis
+  brink_bypass_hysteresis: Hysteresis bypass
   brink_frost_control_temperature: Bevriezing controle temperatuur
   brink_frost_minimum_inlet_temperature: Bevriezing minimum inlaat temperatuur
   brink_imbalance_exhaust: Fan Onbalans Uitlaat
   brink_filter_change_days: Dagen filter wissel
-  brink_filter_reset_op: Filter reset op
+  brink_filter_reset_op: Reset-filter op
   brink_co2_from_inside: Binnen aanzuig CO2
   brink_humidity_from_inside: Binnen aanzuig luchtvochtigheid
   brink_temp_from_inside: Fan Onbalans Inlaat
   brink_performance: Rendement
   auto: Auto
-  initialize: Initialize
+  initialize: Initialiseren
   unknown: Onbekend
   open: Open
   closed: Dicht
