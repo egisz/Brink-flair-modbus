@@ -1,7 +1,7 @@
 substitutions:
-  brink_filter_status: Filter status
-  brink_temp_to_inside: Temperature to inside
-  brink_humidity_to_inside: Humidity to inside
+  brink_filter_status: Filtro būsena
+  brink_temp_to_inside: Temperatūra į lauką
+  brink_humidity_to_inside: Drėgmė į lauką
   brink_dewpoint_to_inside: Dewpoint to inside
   brink_external_humidity_sensor: Humidity sensor (external)
   brink_temp_to_outside: Temperature to outside
