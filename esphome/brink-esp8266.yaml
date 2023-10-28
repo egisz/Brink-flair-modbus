@@ -1,4 +1,4 @@
-## Based on a Flair 400, to changes max values for Flair 300 change all max_value in lines 725 - 774 to 325
+# Based on a Flair 400, to changes max values for Flair 300 change all max_value in lines 725 - 774 to 325
 substitutions:
   name: brink
   friendly_name: Brink
@@ -18,9 +18,6 @@ packages:
       - esphome/labels/.brink-labels-en.yaml
       # - esphome/labels/.brink-labels-nl.yaml
       - esphome/.brink.base.yaml
-      # - esphome/boards/board-esp32.yaml
-      # - esphome/boards/board-esp32S3.yaml
-      - esphome/boards/board-esp8266.yaml
       # - esphome/sensors/sensor-scd41-i2c-dfrobot.yaml
       # - esphome/sensors/sensor-scd41-i2c-m5stack.yaml
       # - esphome/sensors/sensor-enviii-i2c-m5stack.yaml
@@ -30,7 +27,6 @@ packages:
 # packages:
 #   substitutions: !include labels/.brink-labels-en.yaml
 #   device_base1: !include .brink.base.yaml
-#   device_base2: !include boards/board-esp8266.yaml
 
 wifi:
   ssid: !secret wifi_ssid
@@ -40,3 +36,32 @@ wifi:
 # api:
 #   encryption:
 #     key: !secret brink_api_key
+
+esp8266:
+  board: nodemcuv2
+
+uart:
+  tx_pin: D1
+  rx_pin: D2
+  id: mod_bus
+  baud_rate: 19200
+  stop_bits: 1
+  parity: even
+
+# Enable/Disable logging - ESP8266 is low on memory, so logger is disabled by default
+logger:
+  logs:
+    modbus_controller.sensor: WARN
+    modbus_controller.output: WARN
+    modbus.number: WARN
+    esp32.preferences: WARN
+    sensor: WARN
+    text_sensor: WARN
+    dht.sensor: WARN
+    switch: WARN
+    button: WARN
+    number: WARN
+  # baud_rate: 0  # <--- uncomment if you have issues with ESP8266 (wifi upload fails, etc.)
+
+# captative portal and webserver is disabled for ESP8266 due low RAM.
+# if enabled, it leads to unstable operation, Wifi disconnects, etc.
