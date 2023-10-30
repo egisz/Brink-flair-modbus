@@ -21,13 +21,11 @@ jobs:
         run: |
           echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch        
-      # - name: "Test on local include files"
-      #   run: |
-      #     # sed -i 's#fonske/Brink-flair-modbus#${{ github.repository }}#g' esphome/brink.yaml
-      #     # sed -i 's#ref: main#ref: ${{ steps.extract_branch.outputs.branch }}#g' esphome/brink.yaml
-      #     # sed -i 's/- esphome\/boards/# - esphome\/boards/g' esphome/brink.yaml
-      #     # sed -i 's/- esphome\/sensors/# - esphome\/sensors/g' esphome/brink.yaml
-      #     # sed -i 's/# <<: !include/<<: !include/g' esphome/brink.yaml
+      - name: "Test on local include files"
+        run: |
+          # awk  '/^[ -]+esphome\/(boards|sensors|.brink)/ {sub("esphome", "device_base"++count":& ")} 1' esphome/brink.yaml 
+          sed -i '/remote_package:/,+10d' esphome/${{ matrix.devices }}
+          sed -i '/^packages:/a\ \ substitutions: !include labels/.brink-labels-en.yaml\n\ \ device_base: !include .brink.base.yaml' esphome/${{ matrix.devices }}
       #     awk  '/^[ -]+esphome\/(boards|sensors|.brink)/ {sub("esphome", "device_base"++count":& ")} 1' esphome/brink.yaml 
       - name: "Build"
         uses: esphome/build-action@v1.8.0

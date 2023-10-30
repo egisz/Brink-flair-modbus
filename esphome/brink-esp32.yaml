@@ -10,23 +10,23 @@ substitutions:
 
 # In order to use other language or a different ESP chip, fix include file name below:
 # Currently supported languages are en, nl. 
-# packages:
-#   remote_package:
-#     url: https://github.com/fonske/Brink-flair-modbus
-#     ref: main
-#     files: 
-#       - esphome/labels/.brink-labels-en.yaml
+packages:
+  remote_package:
+    url: https://github.com/fonske/Brink-flair-modbus
+    ref: main
+    files: 
+      - esphome/labels/.brink-labels-en.yaml
 #       # - esphome/labels/.brink-labels-nl.yaml
-#       - esphome/.brink.base.yaml
+      - esphome/.brink.base.yaml
 #       # - esphome/sensors/sensor-scd41-i2c-dfrobot.yaml
 #       # - esphome/sensors/sensor-scd41-i2c-m5stack.yaml
 #       # - esphome/sensors/sensor-enviii-i2c-m5stack.yaml
 #       # - esphome/sensors/sensor-dht22.yaml
 
 # for developing/testing, uncomment local includes and comment out remote_package part.
-packages:
-  substitutions: !include labels/.brink-labels-en.yaml
-  device_base1: !include .brink.base.yaml
+# packages:
+#   substitutions: !include labels/.brink-labels-en.yaml
+#   device_base1: !include .brink.base.yaml
 
 # Put your API key here if you have one
 # api:
